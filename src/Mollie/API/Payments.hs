@@ -95,7 +95,7 @@ data PaymentAPI route = PaymentAPI
     -- ^Handler to get a paginated list of payments. Applies default pagination for newest 250 customers. See https://docs.mollie.com/reference/v2/payments-api/list-payments
     , createPayment        :: route :- "payments"
                               :> ReqBody '[JSON] NewPayment
-                              :> Post '[HalJSON] Payment
+                              :> (Verb 'POST 201) '[HalJSON] Payment
     -- ^Handler to create a new payment. See https://docs.mollie.com/reference/v2/payments-api/create-payment
     , getPayment           :: route :- "payments"
                               :> Capture "id" PaymentId

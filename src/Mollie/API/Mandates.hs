@@ -76,6 +76,6 @@ data MandateAPI route = MandateAPI
                                       :> Capture "customerId" CustomerId
                                       :> "mandates"
                                       :> Capture "mandateId" MandateId
-                                      :> DeleteNoContent '[HalJSON] NoContent
+                                      :> DeleteNoContent
     -- ^Handler to remove a mandate by its identifier for a specific customer. See https://docs.mollie.com/reference/v2/mandates-api/revoke-mandate
     } deriving Generic

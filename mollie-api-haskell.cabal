@@ -24,27 +24,27 @@ library
                      , Mollie.API.Mandates
                      , Mollie.API.Subscriptions
                      , Mollie.API.Chargebacks
+                     , Mollie.API.Types
   other-modules:       Mollie.API.Internal
                      , Mollie.API.Helpers
-                     , Mollie.API.Types
                      , Paths_mollie_api_haskell
-  build-depends:       base >= 4.7 && < 5
-                     , aeson >= 1.0 && < 1.5
-                     , time >= 1.5 && < 2
-                     , text >= 1.2 && < 2
-                     , http-client >= 0.5 && < 0.6
-                     , http-client-tls >= 0.3 && < 0.4
-                     , http-media >= 0.7 && < 0.8
-                     , mtl >= 2.2 && < 3
-                     , http-types >= 0.9 && < 1
-                     , bytestring >= 0.10 && < 1
-                     , currency-codes >= 3.0 && < 4
-                     , unordered-containers >= 0.2.9.0 && < 0.3
-                     , lens >= 4.16 && < 5
-                     , servant >= 0.14 && < 0.15
-                     , servant-client >= 0.14 && < 0.15
-                     , servant-client-core >= 0.14 && < 0.15
-                     , data-default >= 0.7 && < 0.8
+  build-depends:       base
+                     , aeson
+                     , time
+                     , text
+                     , http-client
+                     , http-client-tls
+                     , http-media
+                     , mtl
+                     , http-types
+                     , bytestring
+                     , currency-codes
+                     , unordered-containers
+                     , lens
+                     , servant
+                     , servant-client
+                     , servant-client-core
+                     , data-default
   default-language:    Haskell2010
 
 test-suite mollie-test
@@ -57,12 +57,12 @@ test-suite mollie-test
                      , mollie-api-haskell
                      , tasty
                      , tasty-hunit
-                     , aeson >= 1.0 && < 1.4
-                     , bytestring >= 0.10 && < 1
-                     , currency-codes >= 3.0 && < 4
-                     , lens >= 4.16 && < 5
-                     , data-default >= 0.7 && < 0.8
-                     , time >= 1.5 && < 2
+                     , aeson
+                     , bytestring
+                     , currency-codes
+                     , lens
+                     , data-default
+                     , time
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 

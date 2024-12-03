@@ -59,7 +59,7 @@ data RefundAPI route = RefundAPI
                                     :> Capture "paymentId" PaymentId
                                     :> "refunds"
                                     :> Capture "id" RefundId
-                                    :> DeleteNoContent '[HalJSON] NoContent
+                                    :> DeleteNoContent
     -- ^Handler to cancel a refund by its identifier for a specific payment. See https://docs.mollie.com/reference/v2/refunds-api/cancel-refund
     } deriving Generic
 

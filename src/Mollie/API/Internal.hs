@@ -21,7 +21,7 @@ import qualified Network.HTTP.Types        as HTTP
 import           Network.HTTP.Types.Header
 import           Servant.API
 import           Servant.API.ContentTypes  (eitherDecodeLenient)
-import           Servant.Client
+import           Servant.Client            hiding ((//))
 
 {-|
   Mollie returns all API calls with "Content-Type: application/hal+json"
@@ -40,10 +40,10 @@ instance Aeson.FromJSON a => MimeUnrender HalJSON a where
 instance ToHttpApiData PaymentMethod where
     toUrlPiece a = toText a
 
-handleError :: ServantError -> ResponseError
+handleError :: ClientError -> ResponseError
 handleError failure =
     case failure of
-        FailureResponse response ->
+        FailureResponse req response ->
             servantResponseToError (HTTP.statusCode $ responseStatusCode response) (responseBody response)
         DecodeFailure expectedType response ->
             UnexpectedResponse expectedType
@@ -52,7 +52,7 @@ handleError failure =
         InvalidContentTypeHeader response ->
             UnexpectedResponse (Text.pack "Invalid content type header")
         ConnectionError explanation ->
-            UnexpectedResponse explanation
+            UnexpectedResponse (Text.pack . show $ explanation)
 
 servantResponseToError :: Int -- ^ _status
                        -> LazyByteString.ByteString -- ^ body

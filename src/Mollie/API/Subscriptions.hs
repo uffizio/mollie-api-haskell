@@ -70,7 +70,7 @@ data SubscriptionAPI route = SubscriptionAPI
                                            :> Capture "customerId" CustomerId
                                            :> "subscriptions"
                                            :> Capture "id" SubscriptionId
-                                           :> DeleteNoContent '[HalJSON] NoContent
+                                           :> DeleteNoContent
     -- ^Handler to cancel a subscription by its identifier for a specific customer. See https://www.mollie.com/en/docs/reference/subscriptions/delete
     , getSubscriptionPaymentsPaginated  :: route :- "customers"
                                            :> Capture "customerId" CustomerId
