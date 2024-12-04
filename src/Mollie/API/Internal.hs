@@ -35,7 +35,7 @@ instance Aeson.ToJSON a => MimeRender HalJSON a where
     mimeRender _ = Aeson.encode
 
 instance Aeson.FromJSON a => MimeUnrender HalJSON a where
-    mimeUnrender _ = eitherDecodeLenient
+    mimeUnrender _ = Aeson.eitherDecode
 
 instance ToHttpApiData PaymentMethod where
     toUrlPiece a = toText a
