@@ -246,6 +246,7 @@ data PaymentMethod
     | Paypal
     | Paysafecard
     | Sofort
+    | Twint
     | NewPaymentMethod Text.Text -- When this shows up in a response from or is required for a request to Mollie contact package maintainer.
     deriving (Read, Show, Eq)
 
@@ -267,7 +268,7 @@ instance Aeson.FromJSON PaymentMethod where
                   [ Bancontact, Banktransfer, Belfius, Bitcoin
                   , Creditcard, Directdebit, Eps, Giftcard
                   , Giropay, Ideal, Inghomepay, Kbc
-                  , Paypal, Paysafecard, Sofort
+                  , Paypal, Paysafecard, Sofort, Twint
                   ]
 
 {-|
